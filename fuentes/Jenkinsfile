@@ -2,24 +2,24 @@ node {
 	
 	stage('Descargar fuentes') {
 		echo "Descargar fuentes ..."
-		git branch: 'desarrollo', credentialsId: 'alt.carlos@gmail.com', url: 'https://github.com/caltamiranob/devops-calculadora.git'
+		//git branch: 'desarrollo', credentialsId: 'alt.carlos@gmail.com', url: 'https://github.com/caltamiranob/devops-calculadora.git'
 	}
 	
 	stage('Compilar') {
 		echo "Compilando ..."
-		sh 'mvn -f fuentes/pom.xml compile'
+		//sh 'mvn -f fuentes/pom.xml compile'
 	}
 	
 	stage('Pruebas') {
 		echo "Ejecutando pruebas..."
-		sh 'mvn -f fuentes/pom.xml test'
-		junit '**/target/surefire-reports/*.xml'
+		//sh 'mvn -f fuentes/pom.xml test'
+		//junit '**/target/surefire-reports/*.xml'
 	}
 	
 	stage('Sonarqube') {
 		echo "Analizando codigo con sonarqube"
 		withSonarQubeEnv('sonar-devops') {
-            sh 'mvn -f fuentes/pom.xml sonar:sonar -Dsonar.host.url=http://localhost:9000'
+            sh "mvn -f fuentes/pom.xml sonar:sonar"
         }
 	}
 	
