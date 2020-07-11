@@ -12,6 +12,8 @@ node {
 	
 	stage('Pruebas') {
 		echo "Ejecutando pruebas..."
+		sh 'mvn -f fuentes/pom.xml test'
+		junit '**/target/surefire-reports/*.xml'
 	}
 	
 	stage('Sonarqube') {
