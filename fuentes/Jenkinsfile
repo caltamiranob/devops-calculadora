@@ -1,5 +1,10 @@
 node {
 	
+	stage('Descargar fuentes') {
+		echo "Descargar fuentes ..."
+		git branch: 'desarrollo', credentialsId: 'alt.carlos@gmail.com', url: 'https://github.com/caltamiranob/devops-calculadora.git'
+	}
+	
 	stage('Compilar') {
 		echo "Compilando ..."
 		sh 'mvn fuentes/pom.xml compile'
