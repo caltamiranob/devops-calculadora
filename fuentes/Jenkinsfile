@@ -1,0 +1,19 @@
+node {
+	
+	stage('Compilar') {
+		echo "Compilando ..."
+	}
+	
+	stage('Pruebas') {
+		echo "Ejecutando pruebas..."
+	}
+	
+	stage('Sonarqube') {
+		echo "Analizando codigo con sonarqube"
+	}
+	
+	stage('build') {
+		echo "Generando build..."
+	}
+	
+}
