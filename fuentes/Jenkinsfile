@@ -2,6 +2,7 @@ node {
 	
 	stage('Compilar') {
 		echo "Compilando ..."
+		sh 'mvn fuentes/pom.xml compile'
 	}
 	
 	stage('Pruebas') {
