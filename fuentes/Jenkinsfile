@@ -18,6 +18,9 @@ node {
 	
 	stage('Sonarqube') {
 		echo "Analizando codigo con sonarqube"
+		withSonarQubeEnv('sonar-devops') {
+            sh 'mvn -f fuentes/pom.xml sonar:sonar'
+        }
 	}
 	
 	stage('build') {
