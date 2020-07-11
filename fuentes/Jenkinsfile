@@ -19,7 +19,7 @@ node {
 	stage('Sonarqube') {
 		echo "Analizando codigo con sonarqube"
 		withSonarQubeEnv('sonar-devops') {
-            sh 'mvn -f fuentes/pom.xml sonar:sonar'
+            sh 'mvn -f fuentes/pom.xml sonar:sonar -Dsonar.host.url=http://localhost:9000'
         }
 	}
 	
