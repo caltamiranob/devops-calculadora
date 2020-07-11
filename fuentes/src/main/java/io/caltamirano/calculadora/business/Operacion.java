@@ -8,13 +8,12 @@ public class Operacion {
 	
 	public static int calcular(Tipo tipo, int numeroUno, int numeroDos) {
 		
-		switch (tipo) {
-			case SUMAR:
-				return Sumar.calcular(numeroUno, numeroDos);
-	
-			default:
-				throw new RuntimeException("Método no se encuentra implementado");
+		
+		if( tipo == Tipo.SUMAR ) {
+			return Sumar.calcular(numeroUno, numeroDos);
 		}
+		
+		throw new IllegalArgumentException("El tipo de operación seleccionada no se encuentra implementado");
 		
 	}
 	
